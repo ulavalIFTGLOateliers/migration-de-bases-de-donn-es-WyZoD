@@ -14,16 +14,11 @@ class Database:
     def __init__(self):
         load_dotenv()
 
-        self.host = os.environ.get("HOST")
-        self.port = int(os.environ.get("PORT"))
-        self.database = os.environ.get("DATABASE")
+        self.host = os.environ.get("host")
+        self.port = int(os.environ.get("port"))
+        self.database = os.environ.get("database")
         self.user = os.environ.get("user")
-        self.password = os.environ.get("PASSWORD")
-        print(os.environ.get("HOST"))
-        print(os.environ.get("PORT"))
-        print(os.environ.get("DATABASE"))
-        print(os.getenv("user"))
-        print(os.environ.get("PASSWORD"))
+        self.password = os.environ.get("password")
         self._open_sql_connection()
 
         self.migration_counter = 0
