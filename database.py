@@ -5,19 +5,25 @@ from dotenv import load_dotenv
 
 from sql_utils import run_sql_file
 
+from dotenv import load_dotenv
+
+import os
+
 
 class Database:
     def __init__(self):
-        """
-            Chargez les variables d'environnement de votre fichier .env, puis complétez les lignes 15 à 19 afin de récupérer les valeurs de ces variables
-        """
+        load_dotenv()
 
-        self.host =
-        self.port =
-        self.database =
-        self.user =
-        self.password =
-
+        self.host = os.environ.get("HOST")
+        self.port = int(os.environ.get("PORT"))
+        self.database = os.environ.get("DATABASE")
+        self.user = os.environ.get("user")
+        self.password = os.environ.get("PASSWORD")
+        print(os.environ.get("HOST"))
+        print(os.environ.get("PORT"))
+        print(os.environ.get("DATABASE"))
+        print(os.getenv("user"))
+        print(os.environ.get("PASSWORD"))
         self._open_sql_connection()
 
         self.migration_counter = 0
